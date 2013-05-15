@@ -16,7 +16,7 @@ export VAR_DIR=/home/www/tmp
   --without-http_uwsgi_module \
   --without-http_scgi_module \
   --without-http_browser_module \
-  --without-mail_pop4_module \
+  --without-mail_pop3_module \
   --without-mail_imap_module \
   --without-mail_smtp_module \
   --with-http_ssl_module \
