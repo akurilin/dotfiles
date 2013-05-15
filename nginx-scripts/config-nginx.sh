@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export BUILD_DIR=`pwd`
-export NGINX_INSTALLDIR=/usr/local
+export NGINX_INSTALLDIR=/usr/local/nginx
 export VAR_DIR=/home/www/tmp
 
 # some of these can be removed since we're not using those modules
