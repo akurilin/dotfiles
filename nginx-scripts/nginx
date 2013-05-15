@@ -16,8 +16,12 @@
 # Add to default runlevels: sudo /usr/sbin/update-rc.d -f nginx defaults
 # Now it can be used as: sudo /etc/init.d/nginx start|stop|restart
 
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/local/sbin/nginx
+# NOTE: Rackspace guide recommends we save the nginx binary under
+# /usr/local/sbin (this is set in ./configure) rather than /usr/local/nginx/sbin
+# to avoid adding more junk to the path. Not switching to that now, but worth
+# looking into at some point if we do encounter issues.
+PATH=/usr/local/nginx/sbin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/local/nginx/sbin/nginx
 NAME=nginx
 DESC=nginx
 
