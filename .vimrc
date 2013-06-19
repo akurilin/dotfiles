@@ -11,6 +11,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'bzx/vim-theme-pack'
+Bundle 'AKurilin/vim-colorschemes'
 Bundle 'vim-scripts/vimwiki'
 Bundle 'tpope/vim-commentary'
 Bundle 'tomtom/tlib_vim'
@@ -20,26 +21,25 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'tpope/vim-repeat'
 Bundle 'vim-ruby/vim-ruby'
-" Bundle 'scrooloose/nerdtree'
-" Bundle 'vim-scripts/VimClojure'
-" Bundle 'edsono/vim-matchit'
-" Bundle 'kchmck/vim-coffee-script'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/CSApprox'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
-
-" c-_ to close nearest tag above
-" crashes...
-" Bundle 'vim-scripts/closetag.vim'
-
-" allows to % between opening and closing tags
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'AKurilin/matchit.vim'
-" Bundle 'airblade/vim-gitgutter'
 
 " Clojure
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'vim-scripts/paredit.vim'
+Bundle 'kien/rainbow_parentheses.vim'
+
+" Markdown
+Bundle 'tpope/vim-markdown'
+
+" Puppet
+Bundle 'rodjek/vim-puppet'
+
 " -----------------------------------------------------------------------------
 
 filetype on
@@ -119,7 +119,9 @@ set mouse=a  " Mouse in all modes
 
 " colorschemes
 colorscheme desert
-colorscheme earendel
+
+silent! colorscheme earendel
+
 if has('gui_running')
   "   "set guifont=Consolas:h12
   if has("gui_gtk2")
@@ -201,6 +203,9 @@ nnoremap <silent> ]t :tabnext<CR>
 " easy expansion of the active file directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" === LANGUAGE-SPECIFIC COMMANDS ===
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
 " if has("autocmd")
 "   " ruby specific settings
 "   autocmd FileType ruby set textwidth=79 colorcolumn=80
@@ -223,7 +228,38 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
   \ }
 
-" vim-paredit
-" let g:paredit_leader = "\\"
+" Fireplace
+nnoremap <S-F5> :Require!<CR>
+nnoremap <F5> :Require<CR>
+
+" vim-clojure-static
+let g:clojure_align_multiline_strings = 1
+
+" Clojure Parentheses
+silent! au VimEnter * RainbowParenthesesToggle
+silent! au Syntax   * RainbowParenthesesLoadRound
+silent! au Syntax   * RainbowParenthesesLoadSquare
+silent! au Syntax   * RainbowParenthesesLoadBraces
+  " let g:rbpt_loadcmd_toggle = 0
 
 
+" RELATIVE NUMBERS
+au BufEnter * setl relativenumber
+
+" " Always show line numbers, but only in current window.
+:au WinEnter * :setlocal relativenumber
+:au WinLeave * :setlocal number
+
+" Absolute Line Numbers in Insert Mode
+:au InsertEnter * :setlocal number
+:au InsertLeave * :setlocal relativenumber
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    setlocal number
+  else
+    setlocal relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
