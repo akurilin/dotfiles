@@ -91,8 +91,7 @@ set formatoptions=tcqr
 " set autoindent
 set smarttab
 set expandtab
-autocmd FileType * set textwidth=80
-autocmd FileType html set textwidth=0
+set textwidth=80
 set colorcolumn=81
 
 set showmatch
@@ -200,14 +199,6 @@ nnoremap <silent> ]t :tabnext<CR>
 
 " easy expansion of the active file directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-" if has("autocmd")
-"   " ruby specific settings
-"   autocmd FileType ruby set textwidth=79 colorcolumn=80
-" endif
-
-" override default settings by filetype
-" autocmd FileType html source ~/Dropbox/vim/html.vim
 
 " Syntastic - run in passive mode i.e. don't check on each save
 let g:syntastic_mode_map = { 'mode': 'passive',
