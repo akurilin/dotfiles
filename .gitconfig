@@ -1,0 +1,14 @@
+[user]
+	name = Alexandr Kurilin
+	email = alex@kurilin.net
+[core]
+	editor = vim
+[color]
+	ui = true
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[alias]
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
