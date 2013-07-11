@@ -1,0 +1,3 @@
+let g:vimwiki_list = [{'path': '/mnt/teradrive/Dropbox/vimwiki/',
+                    \ 'syntax': 'markdown', 'ext': '.md'}]
+source  ~/code/tool-configs/.vimrc
