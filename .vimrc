@@ -94,6 +94,10 @@ set expandtab
 set textwidth=80
 set colorcolumn=81
 
+" vertical and horizontal line highlighting
+set cursorline
+set cursorcolumn
+
 set showmatch
 set mat=5
 set list
