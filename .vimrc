@@ -66,8 +66,9 @@ let g:rails_default_file='config/database.yml'
 
 syntax on
 
-" ignores case by default in search and CtrlP
-set ignorecase
+" for search and CtrlP: insensitive as long as uppercase letters are not being
+" used. Use `ignorecase` to always ignore case
+set smartcase
 
 set cf
 set history=256
