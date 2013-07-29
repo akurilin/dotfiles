@@ -1,3 +1,5 @@
+alias gvim="UBUNTU_MENUPROXY=0 gvim"
+
 PS1='[\W$(__git_ps1 " (\[\e[0;32m\]%s\[\e[m\])")]\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
