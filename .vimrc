@@ -220,6 +220,9 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
   \ }
 
+" ignore certain folders and file types
+set wildignore+=*/target/*,*.so,*.swp,*.zip,*.jar
+
 " Fireplace
 nnoremap <S-F5> :Require!<CR>
 nnoremap <F5> :Require<CR>
