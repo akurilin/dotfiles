@@ -40,6 +40,9 @@ Bundle 'tpope/vim-markdown'
 " Puppet
 Bundle 'rodjek/vim-puppet'
 
+" Ack / AG grep support
+Bundle 'mileszs/ack.vim'
+
 " -----------------------------------------------------------------------------
 
 filetype on
@@ -258,3 +261,6 @@ function! NumberToggle()
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
+
+" Ack.vim
+let g:ackprg = 'ag --nogroup --nocolor --column'
