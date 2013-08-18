@@ -43,6 +43,9 @@ Bundle 'rodjek/vim-puppet'
 " Ack / AG grep support
 Bundle 'mileszs/ack.vim'
 
+" Quickfix / Location list toggle
+Bundle  'milkypostman/vim-togglelist'
+
 " -----------------------------------------------------------------------------
 
 filetype on
@@ -205,6 +208,12 @@ nnoremap <silent> ]B :blast<CR>
 " switch between tabs analogously to the above
 nnoremap <silent> [t :tabprev<CR>
 nnoremap <silent> ]t :tabnext<CR>
+
+" switch between quickfix list entries
+nnoremap <silent> [c :cprev<CR>
+nnoremap <silent> ]c :cnext<CR>
+nnoremap <silent> [C :cfirst<CR>
+nnoremap <silent> ]C :clast<CR>
 
 " easy expansion of the active file directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
