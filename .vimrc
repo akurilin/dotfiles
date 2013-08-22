@@ -82,7 +82,7 @@ set autowrite
 set ruler
 set nu
 set nowrap
-set timeoutlen=250
+set timeoutlen=1000
 set hidden
 
 set ts=2
