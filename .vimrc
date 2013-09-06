@@ -110,9 +110,11 @@ set list
 
 " GVim-specific
 " Will remove the toolbar
+set guioptions-=m
 set guioptions-=T
+set guioptions-=r
 " text-style tabs
-set guioptions=agim
+set guioptions=agi
 
 " Show $ at end of line and trailing space as ~
 " not sure I'm really hot about this one, saving edited version 
