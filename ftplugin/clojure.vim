@@ -19,3 +19,4 @@ setlocal lispwords+=context
 
 " clojure.jdbc
 setlocal lispwords+=db-transaction
+setlocal lispwords+=jdbc/db-transaction
