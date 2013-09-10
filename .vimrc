@@ -85,8 +85,8 @@ set nowrap
 set timeoutlen=1000
 set hidden
 
-set ts=2
-set bs=2
+set tabstop=2
+set backspace=2
 set shiftwidth=2
 set softtabstop=2
 set nocp incsearch
