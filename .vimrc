@@ -46,6 +46,9 @@ Bundle 'mileszs/ack.vim'
 " Quickfix / Location list toggle
 Bundle  'milkypostman/vim-togglelist'
 
+" Ansi Colors support
+Bundle 'vim-scripts/AnsiEsc.vim'
+
 " -----------------------------------------------------------------------------
 
 filetype on
