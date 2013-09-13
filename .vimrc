@@ -49,6 +49,9 @@ Bundle  'milkypostman/vim-togglelist'
 " Ansi Colors support
 Bundle 'vim-scripts/AnsiEsc.vim'
 
+" Mustache syntax support
+Bundle 'juvenn/mustache.vim'
+
 " -----------------------------------------------------------------------------
 
 filetype on
