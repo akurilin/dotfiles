@@ -52,6 +52,9 @@ Bundle 'vim-scripts/AnsiEsc.vim'
 " Mustache syntax support
 Bundle 'juvenn/mustache.vim'
 
+" advanced ga character info
+Bundle 'tpope/vim-characterize'
+
 " -----------------------------------------------------------------------------
 
 filetype on
