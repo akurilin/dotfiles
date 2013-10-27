@@ -206,10 +206,6 @@ onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>
 " Play with it for a bit and see how that works out.
 " set autochdir
 
-" vimwiki let g:vimwiki_list = [{'path': '$DROPBOX/vimwiki/' , 
-" 'path_html': '$DROPBOX/vimwiki_html/', 'ext': '.wiki', 
-" 'template_path': '$DROPBOX/vimwiki/templates/'}]
-
 " tpope's buffer navigation shortcuts
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
@@ -284,3 +280,8 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 " Ack.vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" vimwiki let g:vimwiki_list = [{'path': '$DROPBOX/vimwiki/' , 
+" 'path_html': '$DROPBOX/vimwiki_html/', 'ext': '.wiki', 
+" 'template_path': '$DROPBOX/vimwiki/templates/'}]
+source ~/.vimrc.vimwiki

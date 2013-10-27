@@ -1,0 +1,4 @@
+" let g:vimwiki_list = [{'path': '/mnt/teradrive/Dropbox/vimwiki/',
+"                     \ 'syntax': 'markdown', 'ext': '.md'}]
+
+let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki/','syntax': 'markdown', 'ext': '.md'}]

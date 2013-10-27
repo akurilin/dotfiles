@@ -10,3 +10,5 @@ then
   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
   exit
 fi
+
+export CLASSROOM_FOLDER=$HOME/code/classroom
