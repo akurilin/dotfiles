@@ -1,3 +1,5 @@
+export PATH=$PATH:~/bin
+
 alias gvim="UBUNTU_MENUPROXY=0 gvim"
 
 PS1='[\W$(__git_ps1 " (\[\e[0;32m\]%s\[\e[m\])")]\$ '
