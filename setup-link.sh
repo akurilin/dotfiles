@@ -7,5 +7,5 @@ ln -s `pwd`/.vimrc.vimwiki ~/.vimrc.vimwiki
 ln -f -s `pwd`/.gitconfig ~/.gitconfig
 
 
-ln -f -s `pwd`/ftplugin -t ~/.vim ftplugin
-ln -f -s `pwd`/syntax   -t ~/.vim syntax
+ln -f -s $PWD/ftplugin ~/.vim
+ln -f -s $PWD/syntax   ~/.vim
