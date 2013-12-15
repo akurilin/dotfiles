@@ -125,10 +125,8 @@ set guioptions-=r
 " text-style tabs
 set guioptions=agi
 
-" Show $ at end of line and trailing space as ~
-" not sure I'm really hot about this one, saving edited version 
-" set lcs=tab:\ \ ,eol:$,trail:~,extends:>,precedes:<
-set lcs=tab:\ \ ,trail:~,extends:>,precedes:<
+" make tabs and trailing spaces visible
+set lcs=tab:»·,trail:~,extends:>,precedes:<
 set novisualbell  " No blinking .
 set noerrorbells  " No noise.
 set laststatus=2  " Always show status line.
