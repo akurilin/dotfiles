@@ -5,10 +5,12 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
-if [[ "$TERM" != "screen-256color" ]]
-then
-  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
-  exit
-fi
+# if [[ "$TERM" != "screen-256color" ]]
+# then
+#   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+#   exit
+# fi
 
 export CLASSROOM_FOLDER=$HOME/code/classroom
+export GPGKEY=A98A6644
+export ANSIBLE_NOCOWS=1
