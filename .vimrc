@@ -237,6 +237,8 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
   \ }
 
+let g:ctrlp_custom_ignore = '\vnode_modules\/.*'
+
 " ignore certain folders and file types
 set wildignore+=*/target/*,*.so,*.swp,*.zip,*.jar
 
