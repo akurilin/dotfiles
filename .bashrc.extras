@@ -1,3 +1,4 @@
+export PATH=~/.cabal/bin:$PATH
 export PATH=$PATH:~/bin
 
 alias gvim="UBUNTU_MENUPROXY=0 gvim"
