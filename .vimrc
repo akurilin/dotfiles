@@ -3,58 +3,65 @@
 " Vundle initialization
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'bzx/vim-theme-pack'
-Bundle 'AKurilin/vim-colorschemes'
-Bundle 'vim-scripts/vimwiki'
-Bundle 'tpope/vim-commentary'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tpope/vim-surround'
-" Bundle 'tpope/vim-rails'
-Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-textobj-entire'
-Bundle 'tpope/vim-repeat'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-scripts/CSApprox'
-Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'AKurilin/matchit.vim'
+Plugin 'bzx/vim-theme-pack'
+Plugin 'AKurilin/vim-colorschemes'
+Plugin 'vim-scripts/vimwiki'
+Plugin 'tpope/vim-commentary'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-surround'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-entire'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-scripts/CSApprox'
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
+" Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
+Plugin 'AKurilin/matchit.vim'
 
 " Clojure
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-fireplace'
-Bundle 'vim-scripts/paredit.vim'
-Bundle 'kien/rainbow_parentheses.vim'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-fireplace'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'kien/rainbow_parentheses.vim'
+
+" Haskell plugins
+Plugin 'dag/vim2hs'
+Plugin 'merijn/haskellFoldIndent'
+" neco-ghc
+" ghcmod-vim
 
 " Markdown
-Bundle 'tpope/vim-markdown'
-
-" Puppet
-Bundle 'rodjek/vim-puppet'
+Plugin 'tpope/vim-markdown'
 
 " Ack / AG grep support
-Bundle 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 
 " Quickfix / Location list toggle
-Bundle  'milkypostman/vim-togglelist'
+Plugin  'milkypostman/vim-togglelist'
 
 " Ansi Colors support
-Bundle 'vim-scripts/AnsiEsc.vim'
+Plugin 'vim-scripts/AnsiEsc.vim'
 
 " Mustache syntax support
-Bundle 'juvenn/mustache.vim'
+Plugin 'juvenn/mustache.vim'
 
 " advanced ga character info
-Bundle 'tpope/vim-characterize'
+Plugin 'tpope/vim-characterize'
 
+" Marks git diff lines
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
 " -----------------------------------------------------------------------------
 
 filetype on
@@ -116,6 +123,9 @@ set cursorcolumn
 set showmatch
 set mat=5
 set list
+
+" disable code folding
+set nofoldenable
 
 " GVim-specific
 " Will remove the toolbar
@@ -281,7 +291,14 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " Ack.vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-" vimwiki let g:vimwiki_list = [{'path': '$DROPBOX/vimwiki/' , 
-" 'path_html': '$DROPBOX/vimwiki_html/', 'ext': '.wiki', 
+" vimwiki let g:vimwiki_list = [{'path': '$DROPBOX/vimwiki/' ,
+" 'path_html': '$DROPBOX/vimwiki_html/', 'ext': '.wiki',
 " 'template_path': '$DROPBOX/vimwiki/templates/'}]
 source ~/.vimrc.vimwiki
+
+" Git gutter turn off by default
+let g:gitgutter_enabled = 0
+
+" vim2hs
+
+" let g:haskell_conceal = 0
