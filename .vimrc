@@ -233,11 +233,11 @@ nnoremap <silent> ]C :clast<CR>
 " easy expansion of the active file directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" Syntastic - run in passive mode i.e. don't check on each save
-let g:syntastic_mode_map = { 'mode': 'passive',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes' : [],
-  \ }
+" " Syntastic - run in passive mode i.e. don't check on each save
+" let g:syntastic_mode_map = { 'mode': 'passive',
+"   \ 'active_filetypes': [],
+"   \ 'passive_filetypes' : [],
+"   \ }
 
 " CtrlP
 " see help ctrlp_prompt_mappings for full list of commands!
@@ -300,5 +300,4 @@ source ~/.vimrc.vimwiki
 let g:gitgutter_enabled = 0
 
 " vim2hs
-
-" let g:haskell_conceal = 0
+let g:haskell_conceal = 0
