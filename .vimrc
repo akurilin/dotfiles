@@ -109,7 +109,10 @@ set nocp incsearch
 set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
 set formatoptions=tcqr
-" set cindent
+
+" These MUST be disabled
+set nocindent
+set nosmartindent
 " set autoindent
 set smarttab
 set expandtab
