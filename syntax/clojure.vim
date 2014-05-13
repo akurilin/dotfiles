@@ -16,3 +16,5 @@ setlocal lispwords+=context
 " clojure.jdbc
 setlocal lispwords+=db-transaction
 setlocal lispwords+=jdbc/db-transaction
+
+set iskeyword=@,48-57,_,192-255,:,-
