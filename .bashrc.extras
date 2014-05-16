@@ -1,6 +1,6 @@
 # cabal / ghc
 # export PATH=~/.cabal/bin:$PATH
-export PATH=/opt/ghc/7.8.2/bin:/opt/happy/1.19.3/bin:/opt/alex/3.1.3/bin:$PATH
+export PATH=/opt/cabal/1.20/bin:/opt/ghc/7.8.2/bin:/opt/happy/1.19.3/bin:/opt/alex/3.1.3/bin:$PATH
 export PATH=$PATH:~/bin
 
 alias gvim="UBUNTU_MENUPROXY=0 gvim"
