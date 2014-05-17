@@ -39,6 +39,7 @@ Plugin 'dag/vim2hs'
 Plugin 'merijn/haskellFoldIndent'
 " neco-ghc
 " ghcmod-vim
+Plugin 'pbrisbin/html-template-syntax'
 
 " Markdown
 Plugin 'tpope/vim-markdown'
