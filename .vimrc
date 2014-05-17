@@ -253,7 +253,7 @@ let g:ctrlp_prompt_mappings = {
 let g:ctrlp_custom_ignore = '\vnode_modules\/.*'
 
 " ignore certain folders and file types
-set wildignore+=*/target/*,*.so,*.swp,*.zip,*.jar
+set wildignore+=*/target/*,*.so,*.swp,*.zip,*.jar,*.hi,*.o,*.dyn_hi,*.dyn_o,*.jpg,*.png
 
 " Fireplace
 nnoremap <S-F5> :Require!<CR>
