@@ -62,6 +62,9 @@ Plugin 'tpope/vim-characterize'
 " Marks git diff lines
 Plugin 'airblade/vim-gitgutter'
 
+" Ansible YAML
+Plugin 'chase/vim-ansible-yaml'
+
 call vundle#end()
 " -----------------------------------------------------------------------------
 
