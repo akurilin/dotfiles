@@ -38,8 +38,11 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'dag/vim2hs'
 Plugin 'merijn/haskellFoldIndent'
 " neco-ghc
-" ghcmod-vim
 Plugin 'pbrisbin/html-template-syntax'
+
+" !!! THIS REQUIRES A SEPARATE COMPILATION STEP
+Plugin 'Shougo/vimproc.vim'
+Plugin 'eagletmt/ghcmod-vim'
 
 " Markdown
 Plugin 'tpope/vim-markdown'
@@ -69,8 +72,8 @@ call vundle#end()
 " -----------------------------------------------------------------------------
 
 filetype on
-filetype plugin on
 filetype indent on
+filetype plugin on
 
 " prevents creation of .swp (use :w more, son)
 set noswapfile
@@ -308,3 +311,6 @@ let g:gitgutter_enabled = 0
 
 " vim2hs
 let g:haskell_conceal = 0
+
+" Syntastic
+let g:syntastic_haskell_checkers = ['hlint']
