@@ -5,6 +5,8 @@ ln -f -s `pwd`/.tmux.conf ~/.tmux.conf
 ln -f -s `pwd`/.vimrc ~/.vimrc
 ln -f -s `pwd`/.gemrc ~/.gemrc
 ln -f -s `pwd`/.ghci ~/.ghci
+chmod 0700 .
+chmod 0600 .ghci
 if [ ! -f ~/.vimrc.vimwiki ]
 then
   ln -s `pwd`/.vimrc.vimwiki ~/.vimrc.vimwiki

@@ -275,7 +275,7 @@ silent! au Syntax   * RainbowParenthesesLoadRound
 silent! au Syntax   * RainbowParenthesesLoadSquare
 silent! au Syntax   * RainbowParenthesesLoadBraces
   " let g:rbpt_loadcmd_toggle = 0
-
+  "
 
 " RELATIVE NUMBERS
 au BufEnter * setl relativenumber
