@@ -4,6 +4,7 @@ ln -f -s `pwd`/.bashrc.extras ~/.bashrc.extras
 ln -f -s `pwd`/.tmux.conf ~/.tmux.conf
 ln -f -s `pwd`/.vimrc ~/.vimrc
 ln -f -s `pwd`/.gemrc ~/.gemrc
+ln -f -s `pwd`/.ghci ~/.ghci
 if [ ! -f ~/.vimrc.vimwiki ]
 then
   ln -s `pwd`/.vimrc.vimwiki ~/.vimrc.vimwiki
