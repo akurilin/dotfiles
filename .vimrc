@@ -71,6 +71,8 @@ Plugin 'chase/vim-ansible-yaml'
 call vundle#end()
 " -----------------------------------------------------------------------------
 
+" syntax have to come first so that ftplugin folder is the one running last
+syntax on
 filetype on
 filetype indent on
 filetype plugin on
@@ -83,8 +85,6 @@ set vb t_vb=
 
 " prevents certain security exploits
 set modelines=0
-
-syntax on
 
 set viminfo^=!
 
