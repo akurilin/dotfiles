@@ -84,16 +84,9 @@ set vb t_vb=
 " prevents certain security exploits
 set modelines=0
 
-" vim-ruby
-compiler ruby
-
 syntax on
 
 set viminfo^=!
-
-let g:rails_default_file='config/database.yml'
-
-syntax on
 
 set ignorecase
 set smartcase
