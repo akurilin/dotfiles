@@ -32,7 +32,7 @@ Plugin 'AKurilin/matchit.vim'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'vim-scripts/paredit.vim'
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'amdt/vim-niji'
 
 " Haskell plugins
 Plugin 'dag/vim2hs'
@@ -267,32 +267,6 @@ nnoremap <F5> :Require<CR>
 
 " vim-clojure-static
 let g:clojure_align_multiline_strings = 1
-
-" Clojure Parentheses
-silent! au VimEnter * RainbowParenthesesToggle
-silent! au Syntax   * RainbowParenthesesLoadRound
-silent! au Syntax   * RainbowParenthesesLoadSquare
-silent! au Syntax   * RainbowParenthesesLoadBraces
-  " let g:rbpt_loadcmd_toggle = 0
-  "
-
-" let g:rbpt_colorpairs = [
-"     \ ['brown',       'RoyalBlue3'],
-"     \ ['Darkblue',    'SeaGreen3'],
-"     \ ['darkgray',    'DarkOrchid3'],
-"     \ ['darkgreen',   'firebrick3'],
-"     \ ['darkcyan',    'RoyalBlue3'],
-"     \ ['darkred',     'SeaGreen3'],
-"     \ ['darkmagenta', 'DarkOrchid1'],
-"     \ ['brown',       'firebrick3'],
-"     \ ['gray',        'RoyalBlue3'],
-"     \ ['darkmagenta', 'DarkOrchid1'],
-"     \ ['Darkblue',    'firebrick3'],
-"     \ ['darkgreen',   'RoyalBlue3'],
-"     \ ['darkcyan',    'SeaGreen3'],
-"     \ ['darkred',     'DarkOrchid1'],
-"     \ ['red',         'firebrick3'],
-"     \ ]
 
 " RELATIVE NUMBERS
 au BufEnter * setl relativenumber
