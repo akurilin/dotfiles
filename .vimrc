@@ -23,17 +23,15 @@ Plugin 'tpope/vim-repeat'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'scrooloose/syntastic'
-" Plugin 'kien/ctrlp.vim'
-" Plugin 'Lokaltog/vim-powerline'
 Plugin 'Shougo/unite.vim'
-" Plugin 'Lokaltog/vim-easymotion'
 Plugin 'bling/vim-airline'
 Plugin 'AKurilin/matchit.vim'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
-Plugin 'vim-scripts/paredit.vim'
+" Plugin 'vim-scripts/paredit.vim'
+Plugin 'AKurilin/paredit.vim'
 Plugin 'amdt/vim-niji'
 
 " Haskell plugins
@@ -69,6 +67,9 @@ Plugin 'airblade/vim-gitgutter'
 
 " Ansible YAML
 Plugin 'chase/vim-ansible-yaml'
+
+" vim easymotion
+Plugin 'Lokaltog/vim-easymotion'
 
 call vundle#end()
 " -----------------------------------------------------------------------------
@@ -335,3 +336,24 @@ let g:haskell_conceal = 0
 
 " Syntastic
 let g:syntastic_haskell_checkers = ['hlint']
+
+"
+" vim-easymotion
+"
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+" nmap s <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-s2)
+
+" Turn on case sensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
