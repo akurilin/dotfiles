@@ -71,6 +71,9 @@ Plugin 'chase/vim-ansible-yaml'
 " vim easymotion
 Plugin 'Lokaltog/vim-easymotion'
 
+" vim-index-guides
+Plugin 'nathanaelkane/vim-indent-guides'
+
 call vundle#end()
 " -----------------------------------------------------------------------------
 
