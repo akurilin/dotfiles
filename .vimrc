@@ -13,7 +13,6 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bzx/vim-theme-pack'
 Plugin 'AKurilin/vim-colorschemes'
-Plugin 'vim-scripts/vimwiki'
 Plugin 'tpope/vim-commentary'
 Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-surround'
@@ -331,11 +330,6 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 " Ack.vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" vimwiki let g:vimwiki_list = [{'path': '$DROPBOX/vimwiki/' ,
-" 'path_html': '$DROPBOX/vimwiki_html/', 'ext': '.wiki',
-" 'template_path': '$DROPBOX/vimwiki/templates/'}]
-source ~/.vimrc.vimwiki
 
 " Git gutter turn off by default
 let g:gitgutter_enabled = 0
