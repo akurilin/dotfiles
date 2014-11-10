@@ -135,6 +135,8 @@ set list
 " disable code folding
 set nofoldenable
 
+set omnifunc=syntaxcomplete#Complete
+
 " GVim-specific
 " Will remove the toolbar
 set guioptions-=m
