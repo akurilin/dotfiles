@@ -8,3 +8,5 @@ set shiftround                  "Round spaces to nearest shiftwidth multiple
 set nojoinspaces                "Don't convert spaces to tabs
 set tw=80
 set iskeyword-=.
+
+setlocal omnifunc=necoghc#omnifunc

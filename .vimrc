@@ -36,7 +36,7 @@ Plugin 'amdt/vim-niji'
 " Haskell plugins
 Plugin 'dag/vim2hs'
 Plugin 'merijn/haskellFoldIndent'
-" neco-ghc
+Plugin 'eagletmt/neco-ghc'
 Plugin 'pbrisbin/html-template-syntax'
 
 " !!! THIS REQUIRES A SEPARATE COMPILATION STEP
@@ -148,6 +148,9 @@ set lcs=tab:»·,trail:~,extends:>,precedes:<
 set novisualbell  " No blinking .
 set noerrorbells  " No noise.
 set laststatus=2  " Always show status line.
+
+" omnicompletion
+set omnifunc=syntaxcomplete#Complete
 
 " gvim specific
 set mousehide  " Hide mouse after chars typed
@@ -339,6 +342,7 @@ let g:haskell_conceal = 0
 
 " Syntastic
 let g:syntastic_haskell_checkers = ['hlint']
+let g:syntastic_haskell_hlint_args = '-i "Eta reduce" -i "Use if"'
 
 "
 " vim-easymotion
