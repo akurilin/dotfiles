@@ -345,6 +345,7 @@ let g:haskell_conceal = 0
 " Syntastic
 let g:syntastic_haskell_checkers = ['hlint']
 let g:syntastic_haskell_hlint_args = '-i "Eta reduce" -i "Use if"'
+" let g:syntastic_aggregate_errors = 1
 
 "
 " vim-easymotion
