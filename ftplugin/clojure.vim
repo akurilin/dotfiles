@@ -17,4 +17,4 @@ setlocal lispwords+=context
 setlocal lispwords+=db-transaction
 setlocal lispwords+=jdbc/db-transaction
 
-set iskeyword=@,48-57,_,192-255,:,-
+setlocal iskeyword=@,48-57,_,192-255,:,-

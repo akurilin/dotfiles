@@ -1,1 +1,1 @@
-setl tw=0
+setlocal tw=0

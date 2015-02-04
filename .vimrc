@@ -122,7 +122,7 @@ set nosmartindent
 set smarttab
 set expandtab
 set textwidth=80
-set colorcolumn=81
+set colorcolumn=+1
 
 " vertical and horizontal line highlighting
 set cursorline

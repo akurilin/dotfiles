@@ -1,4 +1,4 @@
-set iskeyword-=:
+setl iskeyword-=:
 
 " Vim indent file Language:		JavaScript
 " Author: 		Preston Koprivica (pkopriv2@gmail.com)	

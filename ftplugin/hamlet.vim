@@ -1,2 +1,2 @@
-set commentstring=$#\ %s
-set tw=0
+setlocal commentstring=$#\ %s
+setlocal tw=0
