@@ -25,6 +25,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/unite.vim'
 Plugin 'bling/vim-airline'
 Plugin 'AKurilin/matchit.vim'
+Plugin 'majutsushi/tagbar'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
@@ -38,6 +39,7 @@ Plugin 'dag/vim2hs'
 Plugin 'merijn/haskellFoldIndent'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'pbrisbin/html-template-syntax'
+Plugin 'bitc/vim-hdevtools' " requires cabal install hdevtools
 
 " !!! THIS REQUIRES A SEPARATE COMPILATION STEP
 Plugin 'Shougo/vimproc.vim'
@@ -118,7 +120,7 @@ set formatoptions=tcqr
 " These MUST be disabled
 set nocindent
 set nosmartindent
-" set autoindent
+set autoindent
 set smarttab
 set expandtab
 set textwidth=80
@@ -345,6 +347,13 @@ let g:haskell_conceal = 0
 " Syntastic
 let g:syntastic_haskell_checkers = ['hlint']
 let g:syntastic_haskell_hlint_args = '-i "Eta reduce" -i "Use if"'
+
+" vim-hdevtools
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+
+
 " let g:syntastic_aggregate_errors = 1
 
 "
@@ -373,3 +382,7 @@ map <Leader>k <Plug>(easymotion-k)
 " let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
 map <Leader>v :e ~/.vimrc<CR>
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
