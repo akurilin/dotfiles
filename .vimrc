@@ -387,3 +387,7 @@ map <Leader>v :e ~/.vimrc<CR>
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
+
+" generate tags for haskell files automatically
+au BufWritePost *.hs silent !init-tags %
+au BufWritePost *.hsc silent !init-tags %
