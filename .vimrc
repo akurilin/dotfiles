@@ -21,7 +21,8 @@ Plugin 'kana/vim-textobj-entire'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/CSApprox'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+Plugin 'benekastah/neomake'
 Plugin 'Shougo/unite.vim'
 Plugin 'bling/vim-airline'
 Plugin 'AKurilin/matchit.vim'
@@ -254,27 +255,6 @@ nnoremap <silent> ]C :clast<CR>
 " easy expansion of the active file directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" " Syntastic - run in passive mode i.e. don't check on each save
-" let g:syntastic_mode_map = { 'mode': 'passive',
-"   \ 'active_filetypes': [],
-"   \ 'passive_filetypes' : [],
-"   \ }
-
-"
-" CtrlP
-"
-" see help ctrlp_prompt_mappings for full list of commands!
-" c-h isn't equal to backspace by default, gotta fix that
-" let g:ctrlp_prompt_mappings = {
-"   \ 'PrtBS()':              ['<bs>', '<c-h>', '<c-]>'],
-"   \ 'PrtCurLeft()':         ['<left>', '<c-^>'],
-"   \ }
-
-" let g:ctrlp_custom_ignore = '\vnode_modules\/.*'
-
-" ignore certain folders and file types
-" set wildignore+=*/target/*,*.so,*.swp,*.zip,*.jar,*.hi,*.o,*.dyn_hi,*.dyn_o,*.jpg,*.png
-
 "
 " Unite.vim
 "
@@ -344,9 +324,18 @@ let g:gitgutter_enabled = 0
 " vim2hs
 let g:haskell_conceal = 0
 
-" Syntastic
-let g:syntastic_haskell_checkers = ['hlint']
-let g:syntastic_haskell_hlint_args = '-i "Eta reduce" -i "Use if"'
+" " Syntastic
+" let g:syntastic_haskell_checkers = ['hlint']
+" let g:syntastic_haskell_hlint_args = '-i "Eta reduce" -i "Use if"'
+
+" Neomake
+"
+" let g:neomake_haskell_enabled_makers = ['ghcmod']
+" " let g:neomake_haskell_hlint_maker = {
+" "     \ 'args': ['-i "Eta reduce" -i "Use if"'],
+" "     \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
+" "     \ }
+autocmd! BufWritePost * Neomake
 
 " vim-hdevtools
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
