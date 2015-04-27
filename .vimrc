@@ -25,13 +25,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/unite.vim'
 Plugin 'bling/vim-airline'
 Plugin 'AKurilin/matchit.vim'
-Plugin 'majutsushi/tagbar'
+" Plugin 'majutsushi/tagbar'
 Plugin 'Raimondi/delimitMate'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
-" Plugin 'vim-scripts/paredit.vim'
 Plugin 'AKurilin/paredit.vim'
 Plugin 'amdt/vim-niji'
 
@@ -384,10 +383,13 @@ map <Leader>k <Plug>(easymotion-k)
 
 map <Leader>v :e ~/.vimrc<CR>
 
+"
+" TAGS
+"
 " tagbar
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-
+" nmap <F8> :TagbarToggle<CR>
+" let g:tagbar_autofocus = 1
+" NOTE: suppressing generation of tags for now
 " generate tags for haskell files automatically
-au BufWritePost *.hs silent !init-tags %
-au BufWritePost *.hsc silent !init-tags %
+" au BufWritePost *.hs silent !init-tags %
+" au BufWritePost *.hsc silent !init-tags %
