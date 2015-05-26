@@ -6,6 +6,10 @@ export PATH=~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.3/bin:/opt/happy/1.19.
 export PATH=~/.cabal/bin:$PATH
 export PATH=$PATH:~/bin
 
+# add halcyon to path and load its custom paths
+# export PATH=$PATH:~/code/vendor/halcyon
+# eval "$( HALCYON_NO_SELF_UPDATE=1 halcyon paths )"
+
 PS1='[\W$(__git_ps1 " (\[\e[0;32m\]%s\[\e[m\])")]\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
