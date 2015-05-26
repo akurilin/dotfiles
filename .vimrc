@@ -397,7 +397,8 @@ nnoremap K <nop>
 set shortmess+=I
 
 " make filename completion be like in bash
-set wildmode=longest,list
+set wildignorecase
+set wildmode=longest,list,full
 
 " make split appear in the more intuitive location
 set splitbelow
