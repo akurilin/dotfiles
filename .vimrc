@@ -372,6 +372,37 @@ map <Leader>k <Plug>(easymotion-k)
 
 map <Leader>v :e ~/.vimrc<CR>
 
+" center screen on these keys
+nnoremap N Nzz
+nnoremap n nzz
+nnoremap { {zz
+nnoremap } }zz
+
+" make the screen advance up or down when within n lines of the edge
+set scrolloff=10
+
+" move up and down by line, not row, useful when :wrap option is set
+nnoremap j gj
+nnoremap k gk
+" move up and down by row with these commands
+nnoremap gj j
+nnoremap gk k
+
+" remove commands we never use
+nnoremap <F1> <nop>
+nnoremap Q <nop>
+nnoremap K <nop>
+
+" remove startup message
+set shortmess+=I
+
+" make filename completion be like in bash
+set wildmode=longest,list
+
+" make split appear in the more intuitive location
+set splitbelow
+set splitright
+
 "
 " TAGS
 "
