@@ -33,7 +33,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'AKurilin/paredit.vim'
-Plugin 'amdt/vim-niji'
+Plugin 'losingkeys/vim-niji'
 
 " Haskell plugins
 Plugin 'dag/vim2hs'
