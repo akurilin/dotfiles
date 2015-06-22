@@ -18,6 +18,6 @@
   co = checkout
   df = diff
   lg = log -p
-  supermerge = "!f() { git checkout master && git pull && git checkout $1 && git rebase master && git checkout master && git merge $1 --ff-only && git push origin :$1 && git branch -d $1; }; f"
+  supermerge = "!f() { git checkout master && git pull && git checkout $1 && git rebase master && git checkout master && git merge $1 --ff-only && git push origin :$1 && git branch -d $1 && git push origin master; }; f"
 [diff]
 	submodule = log
