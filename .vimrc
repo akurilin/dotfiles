@@ -68,7 +68,8 @@ Plugin 'tpope/vim-characterize'
 Plugin 'airblade/vim-gitgutter'
 
 " Ansible YAML
-Plugin 'chase/vim-ansible-yaml'
+" Plugin 'chase/vim-ansible-yaml'
+" Plugin 'ingydotnet/yaml-vim'
 
 " vim easymotion
 Plugin 'Lokaltog/vim-easymotion'
