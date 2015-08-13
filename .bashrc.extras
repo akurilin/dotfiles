@@ -6,6 +6,10 @@ export PATH=~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:/opt/happy/1.19.
 export PATH=~/.cabal/bin:$PATH
 export PATH=$PATH:~/bin
 
+# ruby - chruby
+source /usr/local/share/chruby/chruby.sh
+chruby ruby-2.2.2
+
 # add halcyon to path and load its custom paths
 # export PATH=$PATH:~/code/vendor/halcyon
 # eval "$( HALCYON_NO_SELF_UPDATE=1 halcyon paths )"
@@ -28,4 +32,3 @@ export ANSIBLE_NOCOWS=1
 # aliases
 alias gvim="UBUNTU_MENUPROXY=0 gvim"
 alias hist='history | grep'
-
