@@ -88,6 +88,8 @@ filetype plugin on
 
 " prevents creation of .swp (use :w more, son)
 set noswapfile
+set backupdir-=.
+set backupdir^=/tmp
 
 " turns sounds off
 set vb t_vb=
