@@ -10,10 +10,6 @@ export PATH=$PATH:~/bin
 source /usr/local/share/chruby/chruby.sh
 chruby ruby-2.2.2
 
-# add halcyon to path and load its custom paths
-# export PATH=$PATH:~/code/vendor/halcyon
-# eval "$( HALCYON_NO_SELF_UPDATE=1 halcyon paths )"
-
 PS1='[\W$(__git_ps1 " (\[\e[0;32m\]%s\[\e[m\])")]\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
