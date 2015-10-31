@@ -27,7 +27,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'bling/vim-airline'
 Plugin 'AKurilin/matchit.vim'
 " Plugin 'majutsushi/tagbar'
-Plugin 'Raimondi/delimitMate'
+" Plugin 'Raimondi/delimitMate'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
