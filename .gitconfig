@@ -2,7 +2,7 @@
 	name = Alexandr Kurilin
 	email = alex@kurilin.net
 [core]
-	editor = vim
+	editor = nvim
 [color]
 	ui = true
   branch = auto
