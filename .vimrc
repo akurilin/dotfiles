@@ -77,6 +77,10 @@ Plugin 'Lokaltog/vim-easymotion'
 " vim-index-guides
 Plugin 'nathanaelkane/vim-indent-guides'
 
+" terraform syntax
+Plugin 'markcornick/vim-terraform'
+
+
 call vundle#end()
 " -----------------------------------------------------------------------------
 
@@ -417,3 +421,10 @@ set splitright
 " generate tags for haskell files automatically
 " au BufWritePost *.hs silent !init-tags %
 " au BufWritePost *.hsc silent !init-tags %
+
+"
+" NEOVIM specific
+"
+
+" block cursor in normal mode, pipe in insert mode
+:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
