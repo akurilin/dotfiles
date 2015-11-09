@@ -26,8 +26,8 @@ export GPGKEY=A98A6644
 export ANSIBLE_NOCOWS=1
 
 # aliases
-alias gvim="UBUNTU_MENUPROXY=0 gvim"
 alias hist='history | grep'
+export FZF_DEFAULT_COMMAND='ag -g ""'
 
 #
 # Section below is to unify history across multiple bash sessions

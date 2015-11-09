@@ -2,16 +2,11 @@
 
 ln -f -s `pwd`/.bashrc.extras ~/.bashrc.extras
 ln -f -s `pwd`/.tmux.conf ~/.tmux.conf
-ln -f -s `pwd`/.vimrc ~/.vimrc
 ln -f -s `pwd`/.gemrc ~/.gemrc
 ln -f -s `pwd`/.ghci ~/.ghci
 ln -f -s `pwd`/.psqlrc-9.3 ~/.psqlrc-9.3
 chmod 0700 .
 chmod 0600 .ghci
-if [ ! -f ~/.vimrc.vimwiki ]
-then
-  ln -s `pwd`/.vimrc.vimwiki ~/.vimrc.vimwiki
-fi
 ln -f -s `pwd`/.gitconfig ~/.gitconfig
 
 
