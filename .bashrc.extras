@@ -1,10 +1,6 @@
-# cabal / ghc
-export PATH=~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:/opt/happy/1.19.4/bin:/opt/alex/3.1.3/bin:$PATH
-
 # cabal will update itself from the PPA version and place the updated binary
 # at this location. It should take precedence over the old cabal
-export PATH=~/.cabal/bin:$PATH
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/bin:~/.local/bin
 
 # ruby - chruby
 source /usr/local/share/chruby/chruby.sh
@@ -20,7 +16,7 @@ then
   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 fi
 
-export CLASSROOM_FOLDER=$HOME/code/classroom
+export CLASSROOM_FOLDER=$HOME/code
 export CUSTOM_PACKAGES_FOLDER=$HOME/Dropbox/FrontRow-CompanyAccount/Engineering/ops/packages
 export GPGKEY=A98A6644
 export ANSIBLE_NOCOWS=1
