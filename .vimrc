@@ -77,10 +77,6 @@ Plugin 'Lokaltog/vim-easymotion'
 " vim-index-guides
 Plugin 'nathanaelkane/vim-indent-guides'
 
-" terraform syntax
-Plugin 'markcornick/vim-terraform'
-
-
 call vundle#end()
 " -----------------------------------------------------------------------------
 
