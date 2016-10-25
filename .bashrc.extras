@@ -2,10 +2,6 @@
 # at this location. It should take precedence over the old cabal
 export PATH=$PATH:~/bin:~/.local/bin
 
-# ruby - chruby
-source /usr/local/share/chruby/chruby.sh
-chruby ruby-2.2.2
-
 PS1='[\W$(__git_ps1 " (\[\e[0;32m\]%s\[\e[m\])")]\$ '
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 
