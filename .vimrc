@@ -29,12 +29,6 @@ Plugin 'AKurilin/matchit.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
-" Clojure
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-fireplace'
-Plugin 'AKurilin/paredit.vim'
-Plugin 'losingkeys/vim-niji'
-
 " Haskell plugins
 Plugin 'dag/vim2hs'
 Plugin 'merijn/haskellFoldIndent'
