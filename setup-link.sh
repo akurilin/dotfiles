@@ -4,7 +4,7 @@ ln -f -s `pwd`/.bashrc.extras ~/.bashrc.extras
 ln -f -s `pwd`/.tmux.conf ~/.tmux.conf
 ln -f -s `pwd`/.gemrc ~/.gemrc
 ln -f -s `pwd`/.ghci ~/.ghci
-ln -f -s `pwd`/.psqlrc-9.3 ~/.psqlrc-9.3
+ln -f -s `pwd`/.psqlrc-9.6 ~/.psqlrc-9.6
 chmod 0700 .
 chmod 0600 .ghci
 ln -f -s `pwd`/.gitconfig ~/.gitconfig
