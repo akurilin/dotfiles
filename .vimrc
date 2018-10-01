@@ -32,13 +32,15 @@ Plugin 'junegunn/fzf.vim'
 " Haskell plugins
 Plugin 'dag/vim2hs'
 Plugin 'merijn/haskellFoldIndent'
-Plugin 'eagletmt/neco-ghc'
+" ghc-mod is no longer supported in modern GHCs
+" Plugin 'eagletmt/neco-ghc'
 Plugin 'pbrisbin/html-template-syntax'
 Plugin 'bitc/vim-hdevtools' " requires cabal install hdevtools
 
 " !!! THIS REQUIRES A SEPARATE COMPILATION STEP
 Plugin 'Shougo/vimproc.vim'
-Plugin 'eagletmt/ghcmod-vim'
+" ghc-mod is no longer supported in modern GHCs
+" Plugin 'eagletmt/ghcmod-vim'
 
 " Markdown
 Plugin 'tpope/vim-markdown'
