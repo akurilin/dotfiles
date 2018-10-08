@@ -20,3 +20,4 @@ ln -f -s $PWD/xmonad.hs ~/.xmonad/xmonad.hs
 # neovim specific (nvim config folder is below and the .vimrc is called
 # init.vim)
 ln -f -s $PWD/.vimrc ~/.config/nvim/init.vim
+ln -f -s /home/alex/code/dotfiles/ftplugin /home/alex/.config/nvim/ftplugin

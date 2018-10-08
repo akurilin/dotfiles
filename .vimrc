@@ -21,7 +21,7 @@ Plugin 'kana/vim-textobj-entire'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/CSApprox'
-" Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'benekastah/neomake'
 Plugin 'bling/vim-airline'
 Plugin 'AKurilin/matchit.vim'
@@ -384,3 +384,9 @@ set splitright
 " NB: requires env var set in bashrc to use AG to find files, that way
 " .gitignore is respected
 nnoremap <leader>t :<C-u>FZF<cr>
+
+" w0rp/ale
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 1
+let g:ale_open_list = 1
