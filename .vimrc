@@ -30,17 +30,14 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " Haskell plugins
-Plugin 'dag/vim2hs'
-Plugin 'merijn/haskellFoldIndent'
-" ghc-mod is no longer supported in modern GHCs
-" Plugin 'eagletmt/neco-ghc'
+" Plugin 'dag/vim2hs'
+" Plugin 'merijn/haskellFoldIndent'
 Plugin 'pbrisbin/html-template-syntax'
 Plugin 'bitc/vim-hdevtools' " requires cabal install hdevtools
+Plugin 'neovimhaskell/haskell-vim'
 
 " !!! THIS REQUIRES A SEPARATE COMPILATION STEP
 Plugin 'Shougo/vimproc.vim'
-" ghc-mod is no longer supported in modern GHCs
-" Plugin 'eagletmt/ghcmod-vim'
 
 " Markdown
 Plugin 'tpope/vim-markdown'
@@ -254,10 +251,6 @@ nnoremap <silent> ]C :clast<CR>
 " easy expansion of the active file directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" Fireplace
-nnoremap <S-F5> :Require!<CR>
-nnoremap <F5> :Require<CR>
-
 " vim-clojure-static
 let g:clojure_align_multiline_strings = 1
 
@@ -390,3 +383,19 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1
 let g:ale_open_list = 1
+
+" Haskell Vim
+let g:haskell_enable_quantification = 1 "to enable highlighting of forall
+let g:haskell_enable_recursivedo = 1 "to enable highlighting of mdo and rec
+let g:haskell_enable_arrowsyntax = 1 "to enable highlighting of proc
+let g:haskell_enable_pattern_synonyms = 1 "to enable highlighting of pattern
+let g:haskell_enable_typeroles = 1 "to enable highlighting of type roles
+
+" " Haskell Indentation
+" let g:haskell_indent_before_where = 1
+" let g:haskell_indent_after_bare_where = 2
+" let g:haskell_indent_in = 0
+"
+" renegerate ctags through fast-tags in a folder that stack can work with
+" nnoremap <F5> :call jobstart('find . -not -path "*/\.*" -type f -name "*.hs" -exec stack exec -- fast-tags -v {} +')<CR>
+nnoremap <F5> :! find . -not -path "*/\.*" -type f -name "*.hs" -exec stack exec -- fast-tags -v {} +<CR>

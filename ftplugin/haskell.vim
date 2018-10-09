@@ -17,3 +17,7 @@ let b:ale_fixers = ['hlint', 'brittany', 'stylish-haskell']
 let b:ale_haskell_hlint_executable='stack'
 let b:ale_haskell_brittany_executable='stack'
 let b:ale_haskell_stylish_haskell_executable='stack'
+
+" Tags
+" not sure I'm actually using this
+" let b:fzf_tags_command = 'fast-tags -v'
