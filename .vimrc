@@ -384,6 +384,10 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1
 let g:ale_open_list = 1
 
+" navigate bewteen ALE errors
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 " Haskell Vim
 let g:haskell_enable_quantification = 1 "to enable highlighting of forall
 let g:haskell_enable_recursivedo = 1 "to enable highlighting of mdo and rec
