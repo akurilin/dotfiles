@@ -276,7 +276,7 @@ endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
 " Ack.vim
-let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --nocolor --column --ignore tags'
 
 " Git gutter turn off by default
 let g:gitgutter_enabled = 0
