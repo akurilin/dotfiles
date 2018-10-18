@@ -12,11 +12,6 @@ then
   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 fi
 
-export CLASSROOM_FOLDER=$HOME/code
-export CUSTOM_PACKAGES_FOLDER=$HOME/Dropbox/FrontRow-CompanyAccount/Engineering/ops/packages
-export GPGKEY=A98A6644
-export ANSIBLE_NOCOWS=1
-
 # aliases
 alias hist='history | grep'
 export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
@@ -26,10 +21,9 @@ export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
 #
 # Avoid duplicates
 export HISTCONTROL=ignoredups:erasedups
+
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
 
 # After each command, append to the history file and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-
-alias genctags='find . -not -path "*/\.*" -type f -name "*.hs" -exec stack exec -- fast-tags -v {} +'
