@@ -381,8 +381,8 @@ nnoremap <leader>t :<C-u>FZF<cr>
 " w0rp/ale
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 1
-let g:ale_open_list = 1
+let g:ale_lint_on_enter = 0
+let g:ale_open_list = 0
 
 " navigate bewteen ALE errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -403,3 +403,6 @@ let g:haskell_enable_typeroles = 1 "to enable highlighting of type roles
 " renegerate ctags through fast-tags in a folder that stack can work with
 " nnoremap <F5> :call jobstart('find . -not -path "*/\.*" -type f -name "*.hs" -exec stack exec -- fast-tags -v {} +')<CR>
 nnoremap <F5> :! find . -not -path "*/\.*" -type f -name "*.hs" -exec stack exec -- fast-tags -v {} +<CR>
+
+" open tag definition in a new vertical split
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
