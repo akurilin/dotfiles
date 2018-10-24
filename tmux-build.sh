@@ -1,0 +1,25 @@
+SESSION=build
+
+# TODO: if this command fails we'll want to run the Okta thing and THEN run the rest of the file, need to test that first
+# IF $(AWS_PROFILE=freckle aws ecr get-login --registry-ids 853032795538 --no-include-email) FAILS
+# THEN RUN OKTA THING
+# THEN RUN THE ABOVE AGAIN
+
+tmux new-session -s "$SESSION" -c ~/code/megarepo -d
+
+# tmux send -t "$SESSION":1 'cd ~/code/megarepo' ENTER
+tmux send -t "$SESSION":1 'docker-compose up' ENTER
+tmux rename-window -t "$SESSION":1 ops
+
+# give docker a few seconds to get up and running
+sleep 5
+
+tmux new-window -t "$SESSION":2 -c ~/code/megarepo
+tmux send -t "$SESSION":2 '(cd haskell/backend/fancy-api && ./run-devel)' ENTER
+tmux rename-window -t "$SESSION":2 haskell
+
+# TODO: figure out how to streamline whether I want to run teacher or student watcher
+tmux new-window -t "$SESSION":3 -c ~/code/megarepo/frontend
+tmux rename-window -t "$SESSION":3 frontend
+
+tmux attach-session -t "$SESSION":1
