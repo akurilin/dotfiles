@@ -11,33 +11,33 @@ call vundle#begin()
 " required!
 Plugin 'gmarik/Vundle.vim'
 
+" color schemes
 Plugin 'bzx/vim-theme-pack'
 Plugin 'AKurilin/vim-colorschemes'
+Plugin 'vim-scripts/CSApprox'
+
 Plugin 'tpope/vim-commentary'
-Plugin 'tomtom/tlib_vim'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
-Plugin 'tpope/vim-repeat'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'vim-scripts/CSApprox'
+Plugin 'tomtom/tlib_vim'
 Plugin 'w0rp/ale'
-Plugin 'benekastah/neomake'
-Plugin 'bling/vim-airline'
+Plugin 'neomake/neomake'
+Plugin 'vim-airline/vim-airline'
 Plugin 'AKurilin/matchit.vim'
 
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
-" Haskell plugins
-" Plugin 'dag/vim2hs'
-" Plugin 'merijn/haskellFoldIndent'
+" Haskell
 Plugin 'pbrisbin/html-template-syntax'
 Plugin 'bitc/vim-hdevtools' " requires cabal install hdevtools
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'Shougo/vimproc.vim' " !!! THIS REQUIRES A SEPARATE COMPILATION STEP
 
-" !!! THIS REQUIRES A SEPARATE COMPILATION STEP
-Plugin 'Shougo/vimproc.vim'
+" Ruby
+Plugin 'vim-ruby/vim-ruby'
 
 " Markdown
 Plugin 'tpope/vim-markdown'
@@ -60,15 +60,8 @@ Plugin 'tpope/vim-characterize'
 " Marks git diff lines
 Plugin 'airblade/vim-gitgutter'
 
-" Ansible YAML
-" Plugin 'chase/vim-ansible-yaml'
-" Plugin 'ingydotnet/yaml-vim'
-
 " vim easymotion
 Plugin 'Lokaltog/vim-easymotion'
-
-" vim-index-guides
-Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 " -----------------------------------------------------------------------------
@@ -134,15 +127,13 @@ set list
 " disable code folding
 set nofoldenable
 
-set omnifunc=syntaxcomplete#Complete
-
-" GVim-specific
-" Will remove the toolbar
-set guioptions-=m
-set guioptions-=T
-set guioptions-=r
-" text-style tabs
-set guioptions=agi
+" " GVim-specific
+" " Will remove the toolbar
+" set guioptions-=m
+" set guioptions-=T
+" set guioptions-=r
+" " text-style tabs
+" set guioptions=agi
 
 " make tabs and trailing spaces visible
 set lcs=tab:»·,trail:~,extends:>,precedes:<
@@ -153,23 +144,18 @@ set laststatus=2  " Always show status line.
 " omnicompletion
 set omnifunc=syntaxcomplete#Complete
 
-" gvim specific
-set mousehide  " Hide mouse after chars typed
-set mouse=a  " Mouse in all modes
-
 " colorschemes
 colorscheme desert
-
 silent! colorscheme earendel
 
-if has('gui_running')
-  "   "set guifont=Consolas:h12
-  if has("gui_gtk2")
-    set guifont=DejaVu\ Sans\ Mono\ 10
-  else
-    set guifont=DejaVu_Sans_Mono:h10:cANSI
-  endif
-endif
+" if has('gui_running')
+"   "   "set guifont=Consolas:h12
+"   if has("gui_gtk2")
+"     set guifont=DejaVu\ Sans\ Mono\ 10
+"   else
+"     set guifont=DejaVu_Sans_Mono:h10:cANSI
+"   endif
+" endif
 
 " map jk and kj to equal Esc
 :inoremap jk <Esc>
@@ -222,10 +208,6 @@ onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>
 onoremap <silent> [L :call NextIndent(1, 0, 1, 1)<CR>
 onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>
 
-" PWD will always be that of the currently selected file.
-" Play with it for a bit and see how that works out.
-" set autochdir
-
 " tpope's buffer navigation shortcuts
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
@@ -250,9 +232,6 @@ nnoremap <silent> ]C :clast<CR>
 
 " easy expansion of the active file directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-" vim-clojure-static
-let g:clojure_align_multiline_strings = 1
 
 " RELATIVE NUMBERS
 au BufEnter * setl relativenumber
@@ -284,26 +263,7 @@ let g:gitgutter_enabled = 0
 " vim2hs
 let g:haskell_conceal = 0
 
-" " Syntastic
-" let g:syntastic_haskell_checkers = ['hlint']
-" let g:syntastic_haskell_hlint_args = '-i "Eta reduce" -i "Use if"'
-
-" Neomake
-"
-" let g:neomake_haskell_enabled_makers = ['ghcmod']
-" " let g:neomake_haskell_hlint_maker = {
-" "     \ 'args': ['-i "Eta reduce" -i "Use if"'],
-" "     \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
-" "     \ }
 autocmd! BufWritePost * Neomake
-
-" vim-hdevtools
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
-
-
-" let g:syntastic_aggregate_errors = 1
 
 "
 " vim-easymotion
@@ -325,12 +285,12 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 "
 " map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
 " map <Leader>h <Plug>(easymotion-linebackward)
 " let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
-map <Leader>v :e ~/.vimrc<CR>
+map <Leader>v :e ~/code/dotfiles/.vimrc<CR>
 
 " center screen on these keys
 nnoremap N Nzz
@@ -383,26 +343,12 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_open_list = 0
+let g:ale_list_window_size = 3
+let g:airline#extensions#ale#enabled = 1
 
 " navigate bewteen ALE errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-" Haskell Vim
-let g:haskell_enable_quantification = 1 "to enable highlighting of forall
-let g:haskell_enable_recursivedo = 1 "to enable highlighting of mdo and rec
-let g:haskell_enable_arrowsyntax = 1 "to enable highlighting of proc
-let g:haskell_enable_pattern_synonyms = 1 "to enable highlighting of pattern
-let g:haskell_enable_typeroles = 1 "to enable highlighting of type roles
-
-" " Haskell Indentation
-" let g:haskell_indent_before_where = 1
-" let g:haskell_indent_after_bare_where = 2
-" let g:haskell_indent_in = 0
-"
-" renegerate ctags through fast-tags in a folder that stack can work with
-" nnoremap <F5> :call jobstart('find . -not -path "*/\.*" -type f -name "*.hs" -exec stack exec -- fast-tags -v {} +')<CR>
-nnoremap <F5> :! find . -not -path "*/\.*" -type f -name "*.hs" -exec stack exec -- fast-tags -v {} +<CR>
 
 " open tag definition in a new vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
