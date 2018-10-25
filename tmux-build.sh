@@ -19,7 +19,7 @@ tmux send -t "$SESSION":2 '(cd haskell/backend/fancy-api && ./run-devel)' ENTER
 tmux rename-window -t "$SESSION":2 haskell
 
 # TODO: figure out how to streamline whether I want to run teacher or student watcher
-tmux new-window -t "$SESSION":3 -c ~/code/megarepo/frontend
+tmux new-window -t "$SESSION":3 -c ~/code/megarepo
 tmux rename-window -t "$SESSION":3 frontend
 
 tmux attach-session -t "$SESSION":1
