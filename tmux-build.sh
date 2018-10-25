@@ -12,7 +12,7 @@ tmux send -t "$SESSION":1 'docker-compose up' ENTER
 tmux rename-window -t "$SESSION":1 ops
 
 # give docker a few seconds to get up and running
-sleep 5
+sleep 15
 
 tmux new-window -t "$SESSION":2 -c ~/code/megarepo
 tmux send -t "$SESSION":2 '(cd haskell/backend/fancy-api && ./run-devel)' ENTER
@@ -21,5 +21,9 @@ tmux rename-window -t "$SESSION":2 haskell
 # TODO: figure out how to streamline whether I want to run teacher or student watcher
 tmux new-window -t "$SESSION":3 -c ~/code/megarepo
 tmux rename-window -t "$SESSION":3 frontend
+
+tmux new-window -t "$SESSION":4
+tmux rename-window -t "$SESSION":4 psql
+tmux send -t "$SESSION":4 'docker exec -it megarepo_postgres_1 psql -U postgres -d classroom_dev' ENTER
 
 tmux attach-session -t "$SESSION":1
