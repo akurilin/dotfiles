@@ -58,7 +58,7 @@ Plugin 'juvenn/mustache.vim'
 Plugin 'tpope/vim-characterize'
 
 " Marks git diff lines
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 
 " vim easymotion
 Plugin 'Lokaltog/vim-easymotion'
@@ -352,3 +352,6 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " open tag definition in a new vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
