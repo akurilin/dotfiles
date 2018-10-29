@@ -26,4 +26,7 @@ tmux new-window -t "$SESSION":4
 tmux rename-window -t "$SESSION":4 psql
 tmux send -t "$SESSION":4 'docker exec -it megarepo_postgres_1 psql -U postgres -d classroom_dev' ENTER
 
+tmux new-window -t "$SESSION":5 -c ~/code/megarepo/sql
+tmux rename-window -t "$SESSION":5 sql
+
 tmux attach-session -t "$SESSION":1

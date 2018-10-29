@@ -35,6 +35,7 @@ Plugin 'pbrisbin/html-template-syntax'
 Plugin 'bitc/vim-hdevtools' " requires cabal install hdevtools
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'Shougo/vimproc.vim' " !!! THIS REQUIRES A SEPARATE COMPILATION STEP
+Plugin 'alx741/yesod.vim'
 
 " Ruby
 Plugin 'vim-ruby/vim-ruby'

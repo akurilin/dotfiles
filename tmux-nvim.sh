@@ -14,4 +14,8 @@ tmux new-window -t "$SESSION":3 -c ~/code/megarepo/frontend
 tmux send -t "$SESSION":3 'nvim' ENTER
 tmux rename-window -t "$SESSION":3 frontend
 
+tmux new-window -t "$SESSION":4 -c ~/code/megarepo/sql
+tmux send -t "$SESSION":4 'nvim' ENTER
+tmux rename-window -t "$SESSION":4 sql
+
 tmux attach-session -t "$SESSION":2
