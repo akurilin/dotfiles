@@ -4,67 +4,74 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/Vundle.vim'
+" Plugin 'gmarik/Vundle.vim'
+
+call plug#begin('~/.vim/plugged')
 
 " color schemes
-Plugin 'bzx/vim-theme-pack'
-Plugin 'AKurilin/vim-colorschemes'
-Plugin 'vim-scripts/CSApprox'
+Plug 'bzx/vim-theme-pack'
+Plug 'AKurilin/vim-colorschemes'
+Plug 'vim-scripts/CSApprox'
 
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-entire'
-Plugin 'tomtom/tlib_vim'
-Plugin 'w0rp/ale'
-Plugin 'neomake/neomake'
-Plugin 'vim-airline/vim-airline'
-Plugin 'AKurilin/matchit.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'tomtom/tlib_vim'
+Plug 'dense-analysis/ale'
+Plug 'neomake/neomake'
+Plug 'vim-airline/vim-airline'
+Plug 'AKurilin/matchit.vim'
 
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Haskell
-Plugin 'pbrisbin/html-template-syntax'
-Plugin 'bitc/vim-hdevtools' " requires cabal install hdevtools
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'Shougo/vimproc.vim' " !!! THIS REQUIRES A SEPARATE COMPILATION STEP
-Plugin 'alx741/yesod.vim'
+" Plug 'pbrisbin/html-template-syntax'
+" Plug 'bitc/vim-hdevtools' " requires cabal install hdevtools
+" Plug 'neovimhaskell/haskell-vim'
+" Plug 'Shougo/vimproc.vim' " !!! THIS REQUIRES A SEPARATE COMPILATION STEP
+" Plug 'alx741/yesod.vim'
 
 " Ruby
-Plugin 'vim-ruby/vim-ruby'
+" Plug 'vim-ruby/vim-ruby'
+"
+" Javascript
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Markdown
-Plugin 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown'
 
 " Ack / AG grep support
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 
 " Quickfix / Location list toggle
-Plugin  'milkypostman/vim-togglelist'
+Plug  'milkypostman/vim-togglelist'
 
 " Ansi Colors support
-Plugin 'vim-scripts/AnsiEsc.vim'
+Plug 'vim-scripts/AnsiEsc.vim'
 
 " Mustache syntax support
-Plugin 'juvenn/mustache.vim'
+Plug 'juvenn/mustache.vim'
 
 " advanced ga character info
-Plugin 'tpope/vim-characterize'
+Plug 'tpope/vim-characterize'
 
 " Marks git diff lines
 " Plugin 'airblade/vim-gitgutter'
 
 " vim easymotion
-Plugin 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
 
-call vundle#end()
+" call vundle#end()
+call plug#end()
 " -----------------------------------------------------------------------------
 
 " syntax have to come first so that ftplugin folder is the one running last
@@ -339,13 +346,28 @@ set splitright
 " .gitignore is respected
 nnoremap <leader>t :<C-u>FZF<cr>
 
-" w0rp/ale
+" ALE
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_open_list = 0
 let g:ale_list_window_size = 3
 let g:airline#extensions#ale#enabled = 1
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'tslint'],
+\   'scss': ['prettier'],
+\   'html': ['prettier'],
+\   'css': ['prettier'],
+\}
+
+let g:ale_linters = {
+\   'python': ['flake8', 'pylint'],
+\   'javascript': ['eslint'],
+\   'vue': ['eslint']
+\}
 
 " navigate bewteen ALE errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
