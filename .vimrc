@@ -357,11 +357,14 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
-\   'typescript': ['prettier', 'tslint'],
+\   'typescript': ['prettier', 'eslint'],
 \   'scss': ['prettier'],
 \   'html': ['prettier'],
 \   'css': ['prettier'],
+\   'json': ['prettier'],
 \}
+
+let g:ale_typescript_prettier_use_local_config = 1
 
 let g:ale_linters = {
 \   'python': ['flake8', 'pylint'],
