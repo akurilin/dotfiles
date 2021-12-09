@@ -156,65 +156,9 @@ set omnifunc=syntaxcomplete#Complete
 colorscheme desert
 silent! colorscheme earendel
 
-" if has('gui_running')
-"   "   "set guifont=Consolas:h12
-"   if has("gui_gtk2")
-"     set guifont=DejaVu\ Sans\ Mono\ 10
-"   else
-"     set guifont=DejaVu_Sans_Mono:h10:cANSI
-"   endif
-" endif
-
 " map jk and kj to equal Esc
 :inoremap jk <Esc>
 :inoremap kj <Esc>
-
-" Jump to the next or previous line that has the same level or a lower
-" level of indentation than the current line.
-"
-" exclusive (bool): true: Motion is exclusive
-" false: Motion is inclusive
-" fwd (bool): true: Go to next line
-" false: Go to previous line
-" lowerlevel (bool): true: Go to line with lower indentation level
-" false: Go to line with the same indentation level
-" skipblanks (bool): true: Skip blank lines
-" false: Don't skip blank lines
-function! NextIndent(exclusive, fwd, lowerlevel, skipblanks)
-  let line = line('.')
-  let column = col('.')
-  let lastline = line('$')
-  let indent = indent(line)
-  let stepvalue = a:fwd ? 1 : -1
-  while (line > 0 && line <= lastline)
-    let line = line + stepvalue
-    if ( ! a:lowerlevel && indent(line) == indent ||
-          \ a:lowerlevel && indent(line) < indent)
-      if (! a:skipblanks || strlen(getline(line)) > 0)
-        if (a:exclusive)
-          let line = line - stepvalue
-        endif
-        exe line
-        exe "normal " column . "|"
-        return
-      endif
-    endif
-  endwhile
-endfunction
-
-" Moving back and forth between lines of same or lower indentation.
-nnoremap <silent> [l :call NextIndent(0, 0, 0, 1)<CR>
-nnoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>
-nnoremap <silent> [L :call NextIndent(0, 0, 1, 1)<CR>
-nnoremap <silent> ]L :call NextIndent(0, 1, 1, 1)<CR>
-vnoremap <silent> [l <Esc>:call NextIndent(0, 0, 0, 1)<CR>m'gv''
-vnoremap <silent> ]l <Esc>:call NextIndent(0, 1, 0, 1)<CR>m'gv''
-vnoremap <silent> [L <Esc>:call NextIndent(0, 0, 1, 1)<CR>m'gv''
-vnoremap <silent> ]L <Esc>:call NextIndent(0, 1, 1, 1)<CR>m'gv''
-onoremap <silent> [l :call NextIndent(0, 0, 0, 1)<CR>
-onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>
-onoremap <silent> [L :call NextIndent(1, 0, 1, 1)<CR>
-onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>
 
 " tpope's buffer navigation shortcuts
 nnoremap <silent> [b :bprevious<CR>
@@ -237,6 +181,12 @@ nnoremap <silent> [c :cprev<CR>
 nnoremap <silent> ]c :cnext<CR>
 nnoremap <silent> [C :cfirst<CR>
 nnoremap <silent> ]C :clast<CR>
+
+" switch between quickfix list entries
+nnoremap <silent> [x :lprev<CR>
+nnoremap <silent> ]x :lnext<CR>
+nnoremap <silent> [X :lfirst<CR>
+nnoremap <silent> ]X :llast<CR>
 
 " easy expansion of the active file directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -292,13 +242,14 @@ let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
 "
-" map <Leader>l <Plug>(easymotion-lineforward)
+" map <Leader>l <Plug>(easymction-lineforward)
 " map <Leader>j <Plug>(easymotion-j)
 " map <Leader>k <Plug>(easymotion-k)
 " map <Leader>h <Plug>(easymotion-linebackward)
 " let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
-map <Leader>v :e ~/code/dotfiles/.vimrc<CR>
+nnoremap gev :e $MYVIMRC<CR>
+nnoremap gsv :so $MYVIMRC<CR>
 
 " center screen on these keys
 nnoremap N Nzz
@@ -346,6 +297,9 @@ set splitright
 " .gitignore is respected
 nnoremap <leader>t :<C-u>FZF<cr>
 
+" export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+" export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 " ALE
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
@@ -357,7 +311,9 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
+\   'javascriptreact': ['prettier', 'eslint'],
 \   'typescript': ['prettier', 'eslint'],
+\   'typescriptreact': ['prettier', 'eslint'],
 \   'scss': ['prettier'],
 \   'html': ['prettier'],
 \   'css': ['prettier'],
