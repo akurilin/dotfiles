@@ -4,17 +4,10 @@
 set nocompatible
 filetype off
 
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-
-" let Vundle manage Vundle
-" required!
-" Plugin 'gmarik/Vundle.vim'
-
 call plug#begin('~/.vim/plugged')
 
 " color schemes
-Plug 'bzx/vim-theme-pack'
+" Plug 'bzx/vim-theme-pack'
 Plug 'AKurilin/vim-colorschemes'
 Plug 'vim-scripts/CSApprox'
 
@@ -24,7 +17,7 @@ Plug 'tpope/vim-repeat'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'tomtom/tlib_vim'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'neomake/neomake'
 Plug 'vim-airline/vim-airline'
 Plug 'AKurilin/matchit.vim'
@@ -32,16 +25,6 @@ Plug 'AKurilin/matchit.vim'
 Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Haskell
-" Plug 'pbrisbin/html-template-syntax'
-" Plug 'bitc/vim-hdevtools' " requires cabal install hdevtools
-" Plug 'neovimhaskell/haskell-vim'
-" Plug 'Shougo/vimproc.vim' " !!! THIS REQUIRES A SEPARATE COMPILATION STEP
-" Plug 'alx741/yesod.vim'
-
-" Ruby
-" Plug 'vim-ruby/vim-ruby'
-"
 " Javascript
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -63,9 +46,6 @@ Plug 'juvenn/mustache.vim'
 
 " advanced ga character info
 Plug 'tpope/vim-characterize'
-
-" Marks git diff lines
-" Plugin 'airblade/vim-gitgutter'
 
 " vim easymotion
 Plug 'Lokaltog/vim-easymotion'
