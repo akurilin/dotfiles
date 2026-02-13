@@ -7,9 +7,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " color schemes
-" Plug 'bzx/vim-theme-pack'
 Plug 'AKurilin/vim-colorschemes'
-Plug 'vim-scripts/CSApprox'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -17,23 +15,19 @@ Plug 'tpope/vim-repeat'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'tomtom/tlib_vim'
-" Plug 'dense-analysis/ale'
-Plug 'neomake/neomake'
-Plug 'vim-airline/vim-airline'
 Plug 'AKurilin/matchit.vim'
 
 Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Javascript
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+if has('nvim')
+  " Javascript / Typescript syntax
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-lualine/lualine.nvim'
+endif
 
 " Markdown
 Plug 'tpope/vim-markdown'
-
-" Ack / AG grep support
-Plug 'mileszs/ack.vim'
 
 " Quickfix / Location list toggle
 Plug  'milkypostman/vim-togglelist'
@@ -192,16 +186,11 @@ endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
-" Ack.vim
-let g:ackprg = 'ag --nogroup --nocolor --column --ignore tags'
-
 " Git gutter turn off by default
 let g:gitgutter_enabled = 0
 
 " vim2hs
 let g:haskell_conceal = 0
-
-autocmd! BufWritePost * Neomake
 
 "
 " vim-easymotion
@@ -229,7 +218,7 @@ let g:EasyMotion_smartcase = 1
 " let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
 nnoremap gev :e $MYVIMRC<CR>
-nnoremap gsv :so $MYVIMRC<CR>
+nnoremap gsv :so $MYVIMRC<Bar>doautocmd <nomodeline> FileType<CR>
 
 " center screen on these keys
 nnoremap N Nzz
@@ -273,47 +262,47 @@ set splitright
 
 " FZF
 " relies on fzf binary being present on the PATH somewhere
-" NB: requires env var set in bashrc to use AG to find files, that way
-" .gitignore is respected
-nnoremap <leader>t :<C-u>FZF<cr>
+" \\t fuzzy file matching
+nnoremap <leader>t :<C-u>Files<CR>
 
-" export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-" export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
+endif
 
-" ALE
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-let g:ale_open_list = 0
-let g:ale_list_window_size = 3
-let g:airline#extensions#ale#enabled = 1
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier', 'eslint'],
-\   'javascriptreact': ['prettier', 'eslint'],
-\   'typescript': ['prettier', 'eslint'],
-\   'typescriptreact': ['prettier', 'eslint'],
-\   'scss': ['prettier'],
-\   'html': ['prettier'],
-\   'css': ['prettier'],
-\   'json': ['prettier'],
-\}
-
-let g:ale_typescript_prettier_use_local_config = 1
-
-let g:ale_linters = {
-\   'python': ['flake8', 'pylint'],
-\   'javascript': ['eslint'],
-\   'vue': ['eslint']
-\}
-
-" navigate bewteen ALE errors
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+if has('nvim')
+lua << EOF
+local ok, configs = pcall(require, 'nvim-treesitter.configs')
+if ok then
+  configs.setup({
+    ensure_installed = {
+      "bash",
+      "css",
+      "html",
+      "javascript",
+      "json",
+      "lua",
+      "markdown",
+      "tsx",
+      "typescript",
+      "vim",
+      "yaml",
+    },
+    highlight = { enable = true },
+    indent = { enable = true },
+  })
+end
+EOF
+endif
 
 " open tag definition in a new vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-" Airline
-let g:airline#extensions#tabline#enabled = 1
+" Lualine
+if has('nvim')
+lua << EOF
+local ok, lualine = pcall(require, 'lualine')
+if ok then
+  lualine.setup({})
+end
+EOF
+endif
