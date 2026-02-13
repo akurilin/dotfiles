@@ -1,3 +1,5 @@
+#!/bin/bash
+
 SESSION=nvim
 
 tmux new-session -s "$SESSION" -d

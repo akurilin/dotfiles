@@ -39,6 +39,6 @@ let b:haskell_enable_typeroles = 1 "to enable highlighting of type roles
 nnoremap <F5> :! find . -not -path "*/\.*" -type f -name "*.hs" -exec stack exec -- fast-tags -v {} +<CR>
 
 " vim-hdevtools
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+nnoremap <buffer> <F1> :HdevtoolsType<CR>
+nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>

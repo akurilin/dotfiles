@@ -1,3 +1,5 @@
+#!/bin/bash
+
 SESSION=build
 
 # TODO: if this command fails we'll want to run the Okta thing and THEN run the rest of the file, need to test that first
